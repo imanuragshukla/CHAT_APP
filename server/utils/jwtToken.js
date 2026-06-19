@@ -7,7 +7,7 @@ export const generateJWTToken = async (user, message,statusCode,res)=>{
     return res.status(statusCode).cookie("token", token,{
         httpOnly : true,
         maxAge : parseInt (process.env.COOKIE_EXPIRE),
-        sameSite: "strict",
+        sameSite: "none",
         secure: process.env.NODE_ENV !== "development" ? true:false,
     }).json({
         success:true,
